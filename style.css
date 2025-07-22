@@ -1,0 +1,56 @@
+/* Set the base font for the UI */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* New background container styles */
+#background-container {
+    background-image: url('https://images.unsplash.com/photo-1494438639946-1ebd1d20e895?q=80&w=2069&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px) brightness(0.8);
+    transition: background-image 0.5s ease-in-out;
+}
+
+/* Set the elegant serif font for the quote text */
+#quote-text {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Style for the large decorative quotation mark */
+#quote-display::before {
+    content: '“';
+    font-family: 'Playfair Display', serif;
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 120px;
+    color: rgba(0, 0, 0, 0.08);
+    line-height: 1;
+    z-index: 1;
+}
+
+/* Adding a subtle transition for a smoother loading experience */
+.fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(15px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* Styling for the Gemini-generated content */
+.prose p {
+    margin-bottom: 1em;
+}
+
+.prose strong {
+    color: #4c1d95; /* A deep purple */
+}

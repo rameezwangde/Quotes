@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspiring Quotes</title>
+    
+    <!-- Tailwind CSS for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Link to your custom stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="h-full bg-gray-900">
+
+    <!-- Background Container -->
+    <div id="background-container" class="fixed inset-0 z-[-1]"></div>
+
+    <!-- Main Content -->
+    <div class="flex items-center justify-center h-full p-4">
+        <!-- Main container for the quote application -->
+        <div class="bg-slate-800/60 backdrop-blur-xl w-full max-w-lg mx-auto rounded-2xl shadow-2xl p-8 sm:p-10 text-center transition-transform duration-300 transform hover:scale-[1.02] border border-slate-700">
+            <h1 class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-500 mb-2">Quote of the Moment</h1>
+            <p class="text-base text-slate-300 mb-8">Powered by Promises & Gemini</p>
+
+            <!-- Area where the quote will be displayed -->
+            <div id="quote-display" class="relative min-h-[180px] flex flex-col justify-center bg-slate-900/50 rounded-lg p-6 mb-8 z-0 ring-1 ring-slate-700">
+                <blockquote id="quote-text" class="text-3xl sm:text-4xl font-bold text-white italic z-10">Click the button to get a quote!</blockquote>
+                <cite id="quote-author" class="block text-right text-slate-400 mt-4 not-italic font-style: normal; z-10"></cite>
+            </div>
+
+            <!-- Button Container -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 items-center gap-4">
+                <!-- The main button -->
+                <button id="new-quote-btn" class="flex-grow w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold py-4 px-5 rounded-lg shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-purple-400/50 transition-all duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.428a1 1 0 00.475 0l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                    </svg>
+                    <span id="button-text" class="text-lg">Get Quote</span>
+                </button>
+                <!-- New "Fetch New" Button -->
+                <button id="fetch-new-btn" class="w-full bg-slate-700 text-slate-200 border-2 border-slate-600 font-bold py-4 px-5 rounded-lg hover:bg-slate-600 focus:outline-none focus:ring-4 focus:ring-slate-500 transition-all duration-300 ease-in-out flex items-center justify-center" title="Fetch a brand new quote from the server">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 110 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+             <!-- Gemini "Explain" Button -->
+            <div class="mt-4">
+                 <button id="explain-quote-btn" class="w-full bg-gradient-to-r from-teal-400 to-blue-500 text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300/50 transition-all duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center space-x-2 hidden">
+                    ✨
+                    <span id="explain-button-text">Explain this Quote</span>
+                </button>
+            </div>
+            
+            <!-- Status indicator -->
+            <div id="status-indicator" class="mt-4 text-xs text-slate-400 h-4"></div>
+
+            <!-- Gemini Explanation Container -->
+            <div id="explanation-container" class="mt-6 text-left hidden">
+                <h3 class="text-xl font-bold text-slate-100 mb-2">✨ Quote Explained</h3>
+                <div id="explanation-text" class="text-base text-slate-300 bg-slate-900/50 p-4 rounded-lg prose ring-1 ring-slate-800"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="absolute bottom-0 left-0 right-0 p-4 text-center text-slate-500 text-sm">
+        <p>Built with passion  by Rameez.</p>
+    </footer>
+
+    <!-- IMPORTANT: Load the config file BEFORE the main script -->
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

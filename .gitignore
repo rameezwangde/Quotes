@@ -1,0 +1,9 @@
+# This file tells Git which files to ignore.
+
+# Ignore the file that contains our secret API key.
+config.js
+
+# You can also ignore other things like node_modules, log files, etc.
+# For example:
+# node_modules/
+# *.log
