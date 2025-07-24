@@ -29,32 +29,32 @@
             <p class="text-base text-slate-300 mb-8">Powered by Promises & Gemini</p>
 
             <!-- Area where the quote will be displayed -->
-            <div id="quote-display" class="relative min-h-[180px] flex flex-col justify-center bg-slate-900/50 rounded-lg p-6 mb-8 z-0 ring-1 ring-slate-700">
+            <!-- IMPORTANT: We give the quote card itself an ID so we can easily target it -->
+            <div id="quote-card" class="relative min-h-[180px] flex flex-col justify-center bg-slate-900/50 rounded-lg p-6 mb-8 z-0 ring-1 ring-slate-700">
                 <blockquote id="quote-text" class="text-3xl sm:text-4xl font-bold text-white italic z-10">Click the button to get a quote!</blockquote>
                 <cite id="quote-author" class="block text-right text-slate-400 mt-4 not-italic font-style: normal; z-10"></cite>
             </div>
 
             <!-- Button Container -->
             <div class="grid grid-cols-1 sm:grid-cols-2 items-center gap-4">
-                <!-- The main button -->
                 <button id="new-quote-btn" class="flex-grow w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white font-bold py-4 px-5 rounded-lg shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-purple-400/50 transition-all duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center space-x-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.428a1 1 0 00.475 0l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.428a1 1 0 00.475 0l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
                     <span id="button-text" class="text-lg">Get Quote</span>
                 </button>
-                <!-- New "Fetch New" Button -->
                 <button id="fetch-new-btn" class="w-full bg-slate-700 text-slate-200 border-2 border-slate-600 font-bold py-4 px-5 rounded-lg hover:bg-slate-600 focus:outline-none focus:ring-4 focus:ring-slate-500 transition-all duration-300 ease-in-out flex items-center justify-center" title="Fetch a brand new quote from the server">
-                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 110 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" />
-                    </svg>
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 110 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" /></svg>
                 </button>
             </div>
-             <!-- Gemini "Explain" Button -->
-            <div class="mt-4">
+             <!-- Gemini "Explain" & Download Buttons -->
+            <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
                  <button id="explain-quote-btn" class="w-full bg-gradient-to-r from-teal-400 to-blue-500 text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-blue-300/50 transition-all duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center space-x-2 hidden">
                     ✨
                     <span id="explain-button-text">Explain this Quote</span>
+                </button>
+                <!-- NEW: Download Button -->
+                <button id="download-btn" class="w-full bg-gradient-to-r from-green-400 to-cyan-500 text-white font-bold py-3 px-4 rounded-lg shadow-lg hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-green-300/50 transition-all duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center space-x-2 hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    <span>Download Image</span>
                 </button>
             </div>
             
@@ -76,6 +76,8 @@
 
     <!-- IMPORTANT: Load the config file BEFORE the main script -->
     <script src="config.js"></script>
+    <!-- NEW: Load html2canvas library BEFORE our script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

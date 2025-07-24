@@ -5,11 +5,12 @@ body {
 
 /* New background container styles */
 #background-container {
-    background-image: url('https://images.unsplash.com/photo-1494438639946-1ebd1d20e895?q=80&w=2069&auto=format&fit=crop');
+    /* This is the image that creates the immersive background */
+    background-image: url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?q=80&w=2071&auto=format&fit=crop');
     background-size: cover;
     background-position: center;
-    filter: blur(4px) brightness(0.8);
-    transition: background-image 0.5s ease-in-out;
+    /* This filter darkens the image */
+    filter: blur(4px) brightness(0.6);
 }
 
 /* Set the elegant serif font for the quote text */
@@ -25,7 +26,7 @@ body {
     top: -10px;
     left: 10px;
     font-size: 120px;
-    color: rgba(0, 0, 0, 0.08);
+    color: rgba(255, 255, 255, 0.08);
     line-height: 1;
     z-index: 1;
 }
@@ -52,5 +53,5 @@ body {
 }
 
 .prose strong {
-    color: #4c1d95; /* A deep purple */
+    color: #a78bfa; /* A light purple for dark mode */
 }
